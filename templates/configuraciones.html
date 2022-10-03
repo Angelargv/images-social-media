@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla configuracion: Jorge</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/estilos.css') }}">
+    <script src="https://kit.fontawesome.com/788f9a9fd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">Social Pogona Henrylawsoni</a>
+            <ul class="nav-menu">
+                <li class="icono2">
+                    <img src="{{ url_for('static',filename='images/icono_persona.png') }}" class="iconos">
+                </li>
+                <li>
+                    <img src="{{ url_for('static',filename='images/icono_config.png') }}" class="iconos"> 
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form class="formulario">
+          
+    
+            <h1>  <i class="fa-solid fa-gear"></i></i>Configuraciones</h1>
+             <div class="contenedor">
+             
+            
+                 <div class="input-contenedor">
+                
+                 <input type="submit" value="Cambio de contraseña" class="button">
+                 
+                 </div>
+                 
+                 <div class="input-contenedor">
+                    
+                    <input type="submit" value="informacion" class="button">
+                     
+                     </div>
+                 
+                 
+            </form>
+    </main>
+</body>
+</html>

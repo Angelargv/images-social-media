@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head class="header">
+    
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/logo.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>  
+<body> 
+    <nav id="header" class="navbar" style="background-color: #6200EE;">
+        <div class="container-fluid">
+          <a class="navbar-brand">Social Pogona Henrylawsoni</a>
+          <form class="d-flex" role="search">
+            <!-- <button type="button" class="btn btn-light">Registrarse</button> -->
+          </form>
+        </div>
+    </nav>
+    <br><br>
+    <style>
+ 
+        .header {
+            text-align: center;
+            width: 80%;
+            height: 17rem;
+            padding:12px;
+            background-image: url("https://convertingcolors.com/color-palette-image/view/6200EE7018EE7E30EE8C47EE9A5FEEA877EEB68FEEC4A7EED2BEEEE0D6EE.png");
+            border-radius: 0 0 20px 20px;
+            justify-content: center ;
+            margin-left: 90px;
+            text-align: center;
+        }
+        .avatar {
+            display: flex;
+            width: 180px;
+            height: 180px;
+            align-items: center;
+            justify-content: center;
+            border: 7px solid #FFFFFF;
+            background-color: #DFE5F2;
+            border-radius: 50%;
+            box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+            position: relative;
+            bottom: -40px;
+            left: calc(50% - 90px);
+            z-index: 1; 
+        }
+        .user-name {
+            font-size: 20px;
+            margin-top: 14px;  
+        }
+        .socials {
+            list-style: none;
+            text-align: center;
+            padding: 0;
+        }
+        .socials li {
+            display: inline-block;
+            margin: 30px;
+        }
+        .icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background-size:cover ;
+        }
+        .email {
+            background-image: url("https://cdn-icons-png.flaticon.com/128/732/732200.png") ;
+        }
+        .facebook {
+            background-image: url("https://cdn-icons-png.flaticon.com/128/4494/4494475.png") ;
+        }
+        .about {
+            padding: 10 px;
+        }
+        .about h3 {
+            color: #545454;
+            font-size: 20px;
+        }
+        .about p {
+            color: #545454;
+            font-size: 18px;
+        }
+        .seccion-perfil-usuario .perfil-usuario-bio{
+            display: block;
+            flex-wrap: wrap;
+            padding: 1.5rem 1.5rem;
+            box-shadow: 0 0 12px rgba(0, 0, 0, .3);
+            background-color: #fff;
+            border-radius: 15px;
+            width: 80%;
+            margin: 70px;
+            text-align: center;
+}
+            .seccion-perfil-usuario .perfil-usuario-footer,
+            .seccion-perfil-usuario .perfil-usuario-bio {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+            background-color: #fff;
+            border-radius: 15px;
+            width: 70%;
+            text-align: center;
+            margin: 70px    ;
+}
+            .seccion-perfil-usuario .lista-datos {
+            width: 200px;
+            list-style: none;
+}
+            .seccion-perfil-usuario .lista-datos li {
+            padding: 5px 0;
+            text-align: center;
+}
+
+            .seccion-perfil-usuario .lista-datos li>.icono {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+            .seccion-perfil-usuario .perfil-usuario-body {
+            width: 100%;
+            position: center;
+            max-width: 2000px;
+            margin-left: 100px;
+            text-align: center;
+}
+
+        </style>
+       
+        <section  class="seccion-perfil-usuario" >
+                <div class="header">
+                <img class="avatar"
+                src="https://cdn-icons-png.flaticon.com/512/91/91528.png"height = "150">
+
+            </div>
+            <div class="perfil-usuario-body">
+                <div class="perfil-usuario-bio">
+                    <h3 class="titulo" style="width: 850px;">Nombre de usuario</h3>
+                    <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+
+                <div class="perfil-usuario-footer">
+
+                  <ul class="lista-datos">
+                        <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
+                        <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
+                        <li><i class="icono fas fa-briefcase"></i> Trabaja en:</li>
+                        <li><i class="icono fas fa-building"></i> Cargo:</li>
+                        <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion:</li>
+                        <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento:</li>
+                        <li><i class="icono fas fa-user-check"></i> Registro:</li>
+                        <li><i class="icono fas fa-share-alt"></i> Redes sociales:</li>
+                      </div>
+                    </ul>
+                  </div>
+                <div class="redes-sociales">
+                    <a href="" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
+                    <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
+                    <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+                </div>
+            </div>
+         <ul class="socials">
+          
+        <li>
+            
+            <i class="icon email"></i>
+            <a href="mailto:usuario@gmail.com">usuario@gmail.com</a>
+        </li>
+        <li>
+            <i class="icon facebook"></i>
+            <a href="https://www.facebook.com/usuario">usuario</a>
+        </li>
+    </ul>
+    <div class="about">
+    </div>
+</section>
+    
+    
+</body> 
+</html>

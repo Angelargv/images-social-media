@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mensajes</title>
+        <link rel="{{ url_for('static',filename='styles/mensaje.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    </head>
+<body>
+    <header class="header">
+        <nav id="header" class="navbar" style="background-color: #6200EE;">
+            <div class="container-fluid">
+              <a class="navbar-brand">Social Pogona Henrylawsoni</a>
+            <tr class="nav-menu">
+                <td class="icono2">
+                    <form id="btn" class="d-flex" role="search">
+                        <button type="button" class="btn btn-light" style = "margin-right: 20px"> <img src="{{ url_for('static',filename='images/icono_persona.png') }}" class="iconos" style="width: 40%"> </button>
+                        
+                        <button type="button" class="btn btn-light"> <img src="{{ url_for('static',filename='images/icono_config.png') }}" alt="" class="iconos" style="width: 30%"> </button>
+                        
+                    </form>   
+                </td>
+            </tr>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <a id="newmsg" href="nuevo_mensaje.html" style= "color:#fff; text-decoration: none;" ><button type="button" class="btn btn-primary" style="background-color: #6200EE; width: 20%; margin-left: 15%;
+            transform: translateX(-40%) translateY(100%);">Nuevo Mensaje </button></a>
+        </div>
+    <form id="newmsg" class="msginbox" style="margin-left: 20%; width: 600px; ">
+        <div class="card mb-3" style="margin-top: 100px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="{{ url_for('static',filename='images/carrusel2.jpg') }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">jrodriguez25</h5>
+                    <p class="card-text">Me encantó esa foto que subiste de tu mascota :D</p>
+                    <p class="card-text"><small class="text-muted">Hace 3 minutos</small></p>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-3" style="margin-top: 30px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="{{ url_for('static',filename='images/carrusel1.jpg') }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">acarcamo</h5>
+                    <p class="card-text">Voy con Tobby para allá!</p>
+                    <p class="card-text"><small class="text-muted">Hace 10 minutos</small></p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="card mb-3" style="margin-top: 30px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="{{ url_for('static',filename='images/carrusel_2_2.jpg') }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">payares25</h5>
+                    <p class="card-text">Me encanta tu perrito! :D</p>
+                    <p class="card-text"><small class="text-muted">Hoy 10:34 am</small></p>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="card mb-3" style="margin-top: 30px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                <img src="{{ url_for('static',filename='images/carrusel_2_1.jpg') }}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">lsilva08</h5>
+                    <p class="card-text">Salgamos a tomar fotos a nuestros perros :D</p>
+                    <p class="card-text"><small class="text-muted">Hoy 09:43 am</small></p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    </main>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>

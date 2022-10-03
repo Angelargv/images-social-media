@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla cambio contraseña: Jorge</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/estilos.css') }}">
+    <script src="https://kit.fontawesome.com/788f9a9fd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">Social Pogona Henrylawsoni</a>
+            <ul class="nav-menu">
+                <li class="icono2">
+                    <img src="{{ url_for('static',filename='images/icono_persona.png') }}" alt="" class="iconos">
+                </li>
+                <li>
+                    <img src="{{ url_for('static',filename='images/icono_config.png') }}" alt="" class="iconos"> 
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form class="formulario">
+          
+    
+            <h1>  <i class="fa-solid fa-key"></i> Cambio de contraseña</h1>
+             <div class="contenedor">
+             
+            
+                 <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                 <input type="text" placeholder="Contraseña actual">
+                 
+                 </div>
+                 
+                 <div class="input-contenedor">
+                    
+                    <select class="aria-label"  >
+                        
+                    <option selected>seleccione su pregunta secreta</option>
+                    <option value="1">Nombre de su primera mascota ?</option>
+                    <option value="2">Nombre de su madre ?</option>
+                    <option value="3">Nombre de su primera escuela ?</option>
+                    <option value="3">pelicula favorita ?</option>
+                    
+                    
+                    </select>
+                     
+                     </div>
+                 
+                 <div class="input-contenedor">
+                    <i class="fas fa-key icon"></i>
+                 <input type="text" placeholder="Respuesta secreta">
+                 
+                 </div>
+                 <div class="input-contenedor">
+                    <i class="fas fa-key icon"></i>
+                     <input type="password" placeholder="Contraseña nueva">
+                     
+                </div>
+                <div class="input-contenedor">
+                    <i class="fas fa-key icon"></i>
+                     <input type="password" placeholder="Confirmar contraseña">
+                     
+             </div>
+                 <input type="submit" value="Actualizar" class="button">
+                 <p>Acepto el cambio de mi contraseña por la estipulada actualmente.</p>
+                 
+             </div>
+            </form>
+    </main>
+</body>
+</html>

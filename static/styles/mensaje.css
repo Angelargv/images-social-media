@@ -1,0 +1,19 @@
+#header a {
+    color:rgb(255, 255, 255);
+    font-family:'Segoe UI';
+    font-size:larger;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#header button {
+    color:#6200EE;
+    font-family:'Roboto';
+}
+
+#btnNuevoMensaje button{
+    background-color:#6200EE;
+    color:white;
+    
+}
+
