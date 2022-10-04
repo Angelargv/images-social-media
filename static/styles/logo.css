@@ -9,7 +9,14 @@
     font-family:'Roboto';
 }
 
+
 #TextoPrincipal h1 {
+    color:#6200EE;
+    font-family:'Noto Sans JP';
+    text-align: center;
+
+}
+.mb-3 h3{
     color:#6200EE;
     font-family:'Noto Sans JP';
     text-align: center;

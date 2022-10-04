@@ -1,5 +1,5 @@
-from unicodedata import name
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+import sqlite3
 
 app = Flask(__name__)
 
@@ -12,8 +12,22 @@ def login():
     return render_template("login.html")
 
 @app.route("/registrarse")
-def registro():
+def registrarse():
     return render_template("registro.html")
+
+@app.route("/registro", methods=["post"])
+def registro():
+    correo = request.form["txtcorreo"]
+    edad = request.form["txtedad"]
+    usuario = request.form["txtusuario"]
+    contrasena = request.form["txtcontrasena"]
+    selec_pregunta = request.form["select"]
+    res_pregunta = request.form["txtrespuestapregunta"]
+    with sqlite3.connect("redsocial.db") as con:
+        cur = con.cursor()
+        cur.execute("INSERT INTO usuarios (correo,edad,usuario,contraseña,preguntaseguridad,respuestapreseguridad) VALUES (?,?,?,?,?,?)",[correo,edad,usuario,contrasena,selec_pregunta, res_pregunta])
+        con.commit()
+    return "Guardado"
 
 @app.route("/login/perfil")
 def perfil():
@@ -52,4 +66,4 @@ def nuevoMensaje():
     return render_template("nuevo_mensaje.html")
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

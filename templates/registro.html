@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla registro: Angela Gaitan</title>
+    <title>Social Pagona | Registro</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='styles/logo.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
@@ -15,7 +15,7 @@
         <div class="container-fluid">
           <a class="navbar-brand">Social Pogona Henrylawsoni</a>
           <form class="d-flex" role="search">
-            <button type="button" class="btn btn-light">Iniciar Sesión</button>
+            <a href="{{ url_for('login') }}"><button type="button" class="btn btn-light">Iniciar Sesión</button> </a>
           </form>
         </div>
     </nav>
@@ -44,47 +44,42 @@
                 <div id="TextoPrincipal" class="col-6">
                     <h1>¡Te damos la bienvenida!</h1>
                     <br>
+                    <form action="{{ url_for('registro') }}" method="post">
                     <div class="mb-2 row">
                         <label for="correo" class="col-sm-2 col-form-label">Correo</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"  id="correo">
-                        </div>
-                    </div>
-                    <div class="mb-2 row">
-                        <label for="nickname" class="col-sm-2 col-form-label">Nickname</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control" id="nickname">
+                            <input type="text" class="form-control" name="txtcorreo" id="correo">
                         </div>
                     </div>
                     <div class="mb-2 row">
                         <label for="edad" class="col-sm-2 col-form-label">Edad</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"  id="edad">
+                            <input type="text" class="form-control" name="txtedad" id="edad">
                         </div>
                     </div>
                     <div class="mb-2 row">
                         <label for="user" class="col-sm-2 col-form-label">Usuario</label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="user">
+                            <input type="text" class="form-control" name="txtusuario" id="user">
                         </div>
                     </div>
                     <div class="mb-2 row">
-                        <label for="pass" class="col-sm-2 col-form-label">Password</label>
+                        <label for="pass" class="col-sm-2 col-form-label">Contraseña</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"  id="pass">
+                            <input type="password" class="form-control" name="txtcontrasena" id="pass">
                         </div>
                     </div>
                     <div class="mb-2 row">
                         <label for="" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
                             <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #6200EE; color:white;">
+                                <button class="btn btn-secondary dropdown-toggle" type="summit" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #6200EE; color:white;">
                                   Pregunta de seguridad
                                 </button>
-                                <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" href="#">¿Cuándo es tu cumpleaños?</a></li>
-                                  <li><a class="dropdown-item" href="#">¿Cómo se llamaba tu mamá?</a></li>
-                                  <li><a class="dropdown-item" href="#">¿A qué secundaria fuiste?</a></li>
+                                <ul class="dropdown-menu" name="select">
+                                  <li><a class="dropdown-item" href="#"><option value="1">¿Cuándo es tu cumpleaños?</option></a></li>
+                                  <li><a class="dropdown-item" href="#"><option value="2">¿Cómo se llamaba tu mamá?</option></a></li>
+                                  <li><a class="dropdown-item" href="#"><option value="3">¿A qué secundaria fuiste?</option></a></li>
                                 </ul>
                               </div>
                         </div>
@@ -92,16 +87,17 @@
                     <div class="mb-2 row">
                         <label for="" class="col-sm-2 col-form-label"></label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"  id="res pregunta seguridad">
+                            <input type="text" class="form-control" name="txtrespuestapregunta" id="res pregunta seguridad">
                         </div>
                     </div>
                     <br>
                     <div class="container">
                         <div class="mb-2 row" class="center">
-                            <button type="button" class="btn btn-primary" style="background-color: #6200EE; color:white; width: 50%; margin-left: 50%;
+                            <button type="summit" class="btn btn-primary" style="background-color: #6200EE; color:white; width: 50%; margin-left: 50%;
                             transform: translateX(-50%);">Registrarse</button>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
