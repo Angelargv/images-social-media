@@ -44,22 +44,29 @@
                         <h1>¡Te damos la bienvenida!</h1>
                         <br>
                         <br>
+                        <form action="{{ url_for('log') }}" method="post">
                         <div class="mb-3 row">
                             <label for="Usuario" class="col-sm-2 col-form-label">Usuario</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control"  id="Usuario">
+                              <input type="text" class="form-control" name="txtusername" id="Usuario">
                             </div>
                           </div>
                           <div class="mb-3 row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
-                              <input type="password" class="form-control" id="inputPassword">
+                              <input type="password" class="form-control" name="txtpassword" id="inputPassword">
                             </div>
                            </div>
                             <br>
+
+                            {% for e in error %}
+                            <div style="color: #6200EE;">{{ e }}</div>
+                            {% endfor %}
+                            <br>
+
                             <div class="container">
                                 <div class="row" class="center">
-                                    <button type="button" class="btn btn-primary" style="background-color: #6200EE; color:white; width: 50%; margin-left: 50%;
+                                    <button type="summit" class="btn btn-primary" style="background-color: #6200EE; color:white; width: 50%; margin-left: 50%;
                                     transform: translateX(-50%);">Ingresar</button>
                                 </div>
                                 <br>
@@ -69,6 +76,7 @@
                                 </div>
                                                     
                             </div>
+                            </form>
                         </div>    
             </div>
         </section>  
