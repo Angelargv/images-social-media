@@ -1,3 +1,4 @@
+from pickle import NONE
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import hashlib
@@ -20,12 +21,12 @@ def login():
 def log():
     error = []
     # Captura los datos enviados
-    username = request.form["txtusername"]
+    correo = request.form["txtcorreo"]
     password = request.form["txtpassword"]
 
     # Validaciones
-    if not username or not password:
-        error.append("Usuario/Contraseña son requeridos")
+    if not correo or not password:
+        error.append("Correo/Contraseña son requeridos")
         return render_template("login.html", error = error)  
     else:
 
@@ -39,12 +40,13 @@ def log():
             cur = con.cursor()
            
             # Sentencias preparadas
-            cur.execute("SELECT * FROM usuarios WHERE usuario= ? AND contraseña= ?",[username, pwd])
-            # cur.fetchone()
-            if cur.fetchone():
+            cur.execute("SELECT * FROM usuarios WHERE correo= ? AND contraseña= ?",[correo, pwd])
+            row = cur.fetchone()
+            if row:
+                session["email"] = row["correo"]
                 return redirect("/login/perfil")
             else:
-                error.append("Usuario o contraseña no existe, por favor registrate")
+                error.append("Correo o contraseña no existe, por favor registrate")
                 return render_template("login.html", error = error) 
 
         
@@ -113,39 +115,61 @@ def siExiste(user):
 
 @app.route("/login/perfil")
 def perfil():
-    return render_template("perfil.html")
+    if "email" in session:
+        return render_template("perfil.html")
+
+    return render_template("login.html", error = ["¡Usuario no autorizado!"]) 
 
 @app.route("/login/perfil/configuraciones")
 def configuracion():
-    return render_template("configuraciones.html")
+    if "email" in session:
+        return render_template("configuraciones.html")
+    return render_template("login.html", error = ["¡Usuario no autorizado!"]) 
 
 @app.route("/login/perfil/configuraciones/información")
 def información():
-    return render_template("informacion.html")
+    if "email" in session:
+        return render_template("informacion.html")
+    return render_template("login.html", error = ["¡Usuario no autorizado!"]) 
     
 @app.route("/login/perfil/configuraciones/cambio-contraseña")
 def cambioContrasena():
-    return render_template("cambio_contrasena.html")
-
+    if "email" in session:
+        return render_template("cambio_contrasena.html")
+    return render_template("login.html", error = ["¡Usuario no autorizado!"]) 
+    
 @app.route("/login/perfil/comentarios")
 def comentarios():
-    return render_template("comentarios.html")
+    if "email" in session:
+        return render_template("comentarios.html")
+    return render_template("login.html", error = ["¡Usuario no autorizado!"])
+    
 
 @app.route("/login/perfil/publicación")
 def publicacion():
-    return render_template("publicacion.html")
-
-@app.route("/login/perfil/publicación/subir-imagen")
-def subirImagen():
-    return render_template("subir_imagen.html")
+    if "email" in session:
+        return render_template("publicacion.html")
+    return render_template("login.html", error = ["¡Usuario no autorizado!"])
+    
 
 @app.route("/login/perfil/mensajes")
 def mensajes():
-    return render_template("mensajes.html")
+    if "email" in session:
+        return render_template("mensajes.html")
+    return render_template("login.html", error = ["¡Usuario no autorizado!"])
+    
 
 @app.route("/login/perfil/mensajes/nuevo-mensaje")
 def nuevoMensaje():
-    return render_template("nuevo_mensaje.html")
+    if "email" in session:
+        return render_template("nuevo_mensaje.html")
+    return render_template("login.html", error = ["¡Usuario no autorizado!"])
+    
+
+@app.route("/logout")
+def Logout():
+    session.pop("email",None)
+    return render_template("principal.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
