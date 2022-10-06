@@ -26,7 +26,7 @@ def log():
 
     # Validaciones
     if not correo or not password:
-        error.append("Correo/Contraseña son requeridos")
+        error.append("¡ Correo / Contraseña son requeridos !")
         return render_template("login.html", error = error)  
     else:
 
@@ -172,4 +172,4 @@ def Logout():
     return render_template("principal.html")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=4443, ssl_context=('micertificado.pem','llaveprivada.pem'))
