@@ -91,6 +91,10 @@
                         </div>
                     </div>
                     <br>
+                    {% for e in error %}
+                        <div style="color: #6200EE;"><strong>{{ e }}</strong></div>
+                    {% endfor %}
+                    <br>
                     <div class="container">
                         <div class="mb-2 row" class="center">
                             <button type="summit" class="btn btn-primary" style="background-color: #6200EE; color:white; width: 50%; margin-left: 50%;

@@ -57,6 +57,7 @@ def registrarse():
 
 @app.route("/registro", methods=["post"])
 def registro():
+    error = []
     correo = request.form["txtcorreo"]
     edad = request.form["txtedad"]
     usuario = request.form["txtusuario"]
@@ -64,19 +65,24 @@ def registro():
     comprobar = request.form["txtcomprobacion"]
 
     if not correo:
-        return "Debe digitar un correo"
+        error.append("¡Debe digitar un correo!")
+        return render_template("registro.html", error = error)  
 
     if not edad:
-        return "Debe digitar su edad"
+        error.append("¡Debe digitar su edad!")
+        return render_template("registro.html", error = error)  
 
     if not usuario:
-        return "Debe digitar un usuario"
+        error.append("¡Debe digitar un usuario!")
+        return render_template("registro.html", error = error)  
 
     if not contrasena:
-        return "Debe digitar un contraseña"
+        error.append("¡Debe digitar un contraseña!")
+        return render_template("registro.html", error = error) 
 
     if (contrasena!= comprobar):
-        return "Contraseña no coincide"
+        error.append("¡Contraseña no coincide!")
+        return render_template("registro.html", error = error) 
 
     # Aplica la función hash (haslib) al password
     clave = hashlib.sha256(contrasena.encode())
@@ -87,7 +93,8 @@ def registro():
         cur = con.cursor()
         # Consultar si ya existe Usuario
         if siExiste(usuario):
-            return "Ya existe el Usuario!"
+            error.append("¡Ya existe el Usuario!")
+            return render_template("registro.html", error = error) 
         #Crea el nuevo Usuario
         cur.execute("INSERT INTO usuarios (correo,edad,usuario,contraseña) VALUES (?,?,?,?)",[correo,edad,usuario,pwd])
         con.commit()
