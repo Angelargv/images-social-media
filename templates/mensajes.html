@@ -5,30 +5,29 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mensajes</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/logo.css') }}">
         <link rel="{{ url_for('static',filename='styles/mensaje.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     </head>
 <body>
-    <header class="header">
-        <nav id="header" class="navbar" style="background-color: #6200EE;">
-            <div class="container-fluid">
-              <a class="navbar-brand">Social Pogona Henrylawsoni</a>
-            <tr class="nav-menu">
-                <td class="icono2">
-                    <form id="btn" class="d-flex" role="search">
-                        <button type="button" class="btn btn-light" style = "margin-right: 20px"> <img src="{{ url_for('static',filename='images/icono_persona.png') }}" class="iconos" style="width: 40%"> </button>
-                        
-                        <button type="button" class="btn btn-light"> <img src="{{ url_for('static',filename='images/icono_config.png') }}" alt="" class="iconos" style="width: 30%"> </button>
-                        
-                    </form>   
-                </td>
-            </tr>
-            </div>
-        </nav>
-    </header>
+    <nav id="header" class="navbar" style="background-color: #6200EE;">
+        <div class="container-fluid">
+          <a class="navbar-brand">Social Pogona Henrylawsoni</a>
+          <form class="d-flex" role="search">
+            <a href="{{ url_for('perfil') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color:white;margin-left: 15px;" class="icon icon-tabler icon-tabler-user-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <circle cx="12" cy="10" r="3"></circle>
+                    <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+                 </svg>
+            </a>
+          </form>
+        </div>
+    </nav>
     <main>
         <div>
-            <a id="newmsg" href="nuevo_mensaje.html" style= "color:#fff; text-decoration: none;" ><button type="button" class="btn btn-primary" style="background-color: #6200EE; width: 20%; margin-left: 15%;
+            <a id="newmsg" href="{{ url_for('nuevoMensaje') }}" style= "color:#fff; text-decoration: none;" ><button type="button" class="btn btn-primary" style="background-color: #6200EE; width: 20%; margin-left: 15%;
             transform: translateX(-40%) translateY(100%);">Nuevo Mensaje </button></a>
         </div>
     <form id="newmsg" class="msginbox" style="margin-left: 20%; width: 600px; ">

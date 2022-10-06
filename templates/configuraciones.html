@@ -1,50 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla configuracion: Jorge</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/estilos.css') }}">
-    <script src="https://kit.fontawesome.com/788f9a9fd8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
-</head>
-<body>
-    <header class="header">
-        <nav class="nav">
-            <a href="#" class="logo">Social Pogona Henrylawsoni</a>
-            <ul class="nav-menu">
-                <li class="icono2">
-                    <img src="{{ url_for('static',filename='images/icono_persona.png') }}" class="iconos">
-                </li>
-                <li>
-                    <img src="{{ url_for('static',filename='images/icono_config.png') }}" class="iconos"> 
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <form class="formulario">
-          
-    
-            <h1>  <i class="fa-solid fa-gear"></i></i>Configuraciones</h1>
-             <div class="contenedor">
-             
-            
-                 <div class="input-contenedor">
-                
-                 <input type="submit" value="Cambio de contraseña" class="button">
-                 
-                 </div>
-                 
-                 <div class="input-contenedor">
-                    
-                    <input type="submit" value="informacion" class="button">
-                     
-                     </div>
-                 
-                 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Configuraciones</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/estilos.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/logo.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    </head>
+    <body>
+        <nav id="header" class="navbar" style="background-color: #6200EE;">
+            <div class="container-fluid">
+            <a class="navbar-brand">Social Pogona Henrylawsoni</a>
+            <form class="d-flex" role="search">
+                <a href="{{ url_for('perfil') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color:white;" class="icon icon-tabler icon-tabler-user-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <circle cx="12" cy="12" r="9"></circle>
+                        <circle cx="12" cy="10" r="3"></circle>
+                        <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+                    </svg>
+                </a>
+                <a href="{{ url_for('mensajes') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color:white;margin-left: 15px;" class="icon icon-tabler icon-tabler-message-dots" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4"></path>
+                        <line x1="12" y1="11" x2="12" y2="11.01"></line>
+                        <line x1="8" y1="11" x2="8" y2="11.01"></line>
+                        <line x1="16" y1="11" x2="16" y2="11.01"></line>                
+                    </svg>
+                </a> 
             </form>
-    </main>
-</body>
+            </div>
+        </nav>
+        <main>
+            <form class="formulario">
+            
+                <h1> <svg xmlns="http://www.w3.org/2000/svg" style="color: #6200EE;" class="icon icon-tabler icon-tabler-settings" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>Configuraciones</h1>
+                <div class="contenedor">
+                    <div class="input-contenedor">
+                        <a href="{{ url_for('cambioContrasena') }}"><input type="button" value="Cambio de contraseña" class="button"></a>                    
+                    </div>
+                    
+                    <div class="input-contenedor">                        
+                        <a href="{{ url_for('información') }}"><input type="button" value="informacion" class="button"></a>                        
+                    </div>
+                </div>
+                    
+                    
+                </form>
+        </main>
+    </body>
 </html>

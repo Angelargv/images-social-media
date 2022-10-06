@@ -9,23 +9,30 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     </head>
 <body>
-    <header class="header">
-        <nav id="header" class="navbar" style="background-color: #6200EE;">
-            <div class="container-fluid">
-              <a class="navbar-brand">Social Pogona Henrylawsoni</a>
-            <tr class="nav-menu">
-                <td class="icono2">
-                    <form id="btn" class="d-flex" role="search">
-                        <button type="button" class="btn btn-light" style = "margin-right: 20px"> <img src="{{ url_for('static',filename='images/icono_persona.png') }}" alt="" class="iconos" style="width: 40%"> </button>
-                        
-                        <button type="button" class="btn btn-light"> <img src="{{ url_for('static',filename='images/icono_config.png') }}" class="iconos" style="width: 30%"> </button>
-                        
-                    </form>   
-                </td>
-            </tr>
-            </div>
-        </nav>
-    </header>
+    <nav id="header" class="navbar" style="background-color: #6200EE;">
+        <div class="container-fluid">
+          <a class="navbar-brand">Social Pogona Henrylawsoni</a>
+          <form class="d-flex" role="search">
+            <a href="{{ url_for('perfil') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color:white;" class="icon icon-tabler icon-tabler-user-circle" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <circle cx="12" cy="10" r="3"></circle>
+                    <path d="M6.168 18.849a4 4 0 0 1 3.832 -2.849h4a4 4 0 0 1 3.834 2.855"></path>
+                 </svg>
+            </a>
+            <a href="{{ url_for('mensajes') }}">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color:white;margin-left: 15px;" class="icon icon-tabler icon-tabler-message-dots" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4"></path>
+                    <line x1="12" y1="11" x2="12" y2="11.01"></line>
+                    <line x1="8" y1="11" x2="8" y2="11.01"></line>
+                    <line x1="16" y1="11" x2="16" y2="11.01"></line>                
+                </svg>
+            </a> 
+          </form>
+        </div>
+    </nav>
     <main>
         <div id="wrapper" style = "margin-top: 40px;">
             <div id="menu">

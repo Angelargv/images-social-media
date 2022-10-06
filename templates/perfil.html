@@ -1,180 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head class="header">
-    
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/logo.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-</head>  
-<body> 
-    <nav id="header" class="navbar" style="background-color: #6200EE;">
-        <div class="container-fluid">
-          <a class="navbar-brand">Social Pogona Henrylawsoni</a>
-          <form class="d-flex" role="search">
-            <!-- <button type="button" class="btn btn-light">Registrarse</button> -->
-          </form>
+    <head class="header">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Perfil</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='styles/logo.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    </head>  
+    <body> 
+        <nav id="header" class="navbar" style="background-color: #6200EE;">
+            <div class="container-fluid">
+            <a class="navbar-brand">Social Pogona Henrylawsoni</a>
+            <form class="d-flex" role="search">
+                <a href="{{ url_for('mensajes') }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color:white;" class="icon icon-tabler icon-tabler-message-dots" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M4 21v-13a3 3 0 0 1 3 -3h10a3 3 0 0 1 3 3v6a3 3 0 0 1 -3 3h-9l-4 4"></path>
+                        <line x1="12" y1="11" x2="12" y2="11.01"></line>
+                        <line x1="8" y1="11" x2="8" y2="11.01"></line>
+                        <line x1="16" y1="11" x2="16" y2="11.01"></line>                
+                    </svg>
+                </a> 
+                <a href="{{ url_for('configuracion') }}">           
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color:white;margin-left: 15px;" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                </a>
+                <a href="{{ url_for('publicacion') }}">  
+                    <svg xmlns="http://www.w3.org/2000/svg" style="color:white;margin-left: 15px;" class="icon icon-tabler icon-tabler-photo" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <line x1="15" y1="8" x2="15.01" y2="8"></line>
+                        <rect x="4" y="4" width="16" height="16" rx="3"></rect>
+                        <path d="M4 15l4 -4a3 5 0 0 1 3 0l5 5"></path>
+                        <path d="M14 14l1 -1a3 5 0 0 1 3 0l2 2"></path>
+                    </svg>
+                </a>
+            </form>
+            </div>
+        </nav>
+        <br><br>
+        <div class="text-center">
+            <img src="{{ url_for('static',filename='images/perfil.jpeg') }}" class="rounded" alt="...">
         </div>
-    </nav>
-    <br><br>
-    <style>
- 
-        .header {
-            text-align: center;
-            width: 80%;
-            height: 17rem;
-            padding:12px;
-            background-image: url("https://convertingcolors.com/color-palette-image/view/6200EE7018EE7E30EE8C47EE9A5FEEA877EEB68FEEC4A7EED2BEEEE0D6EE.png");
-            border-radius: 0 0 20px 20px;
-            justify-content: center ;
-            margin-left: 90px;
-            text-align: center;
-        }
-        .avatar {
-            display: flex;
-            width: 180px;
-            height: 180px;
-            align-items: center;
-            justify-content: center;
-            border: 7px solid #FFFFFF;
-            background-color: #DFE5F2;
-            border-radius: 50%;
-            box-shadow: 0 0 12px rgba(0, 0, 0, .2);
-            position: relative;
-            bottom: -40px;
-            left: calc(50% - 90px);
-            z-index: 1; 
-        }
-        .user-name {
-            font-size: 20px;
-            margin-top: 14px;  
-        }
-        .socials {
-            list-style: none;
-            text-align: center;
-            padding: 0;
-        }
-        .socials li {
-            display: inline-block;
-            margin: 30px;
-        }
-        .icon {
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-            background-size:cover ;
-        }
-        .email {
-            background-image: url("https://cdn-icons-png.flaticon.com/128/732/732200.png") ;
-        }
-        .facebook {
-            background-image: url("https://cdn-icons-png.flaticon.com/128/4494/4494475.png") ;
-        }
-        .about {
-            padding: 10 px;
-        }
-        .about h3 {
-            color: #545454;
-            font-size: 20px;
-        }
-        .about p {
-            color: #545454;
-            font-size: 18px;
-        }
-        .seccion-perfil-usuario .perfil-usuario-bio{
-            display: block;
-            flex-wrap: wrap;
-            padding: 1.5rem 1.5rem;
-            box-shadow: 0 0 12px rgba(0, 0, 0, .3);
-            background-color: #fff;
-            border-radius: 15px;
-            width: 80%;
-            margin: 70px;
-            text-align: center;
-}
-            .seccion-perfil-usuario .perfil-usuario-footer,
-            .seccion-perfil-usuario .perfil-usuario-bio {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 1.5rem 2rem;
-            box-shadow: 0 0 12px rgba(0, 0, 0, .2);
-            background-color: #fff;
-            border-radius: 15px;
-            width: 70%;
-            text-align: center;
-            margin: 70px    ;
-}
-            .seccion-perfil-usuario .lista-datos {
-            width: 200px;
-            list-style: none;
-}
-            .seccion-perfil-usuario .lista-datos li {
-            padding: 5px 0;
-            text-align: center;
-}
-
-            .seccion-perfil-usuario .lista-datos li>.icono {
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    vertical-align: middle;
-}
-            .seccion-perfil-usuario .perfil-usuario-body {
-            width: 100%;
-            position: center;
-            max-width: 2000px;
-            margin-left: 100px;
-            text-align: center;
-}
-
-        </style>
-       
-        <section  class="seccion-perfil-usuario" >
-                <div class="header">
-                <img class="avatar"
-                src="https://cdn-icons-png.flaticon.com/512/91/91528.png"height = "150">
-
+        <br><br>
+        <section class="card" class="container">
+            <div class="card-header" style="background-color: #6200EE;color:white;">
+            <strong> TU PERFIL </strong>
             </div>
-            <div class="perfil-usuario-body">
-                <div class="perfil-usuario-bio">
-                    <h3 class="titulo" style="width: 850px;">Nombre de usuario</h3>
-                    <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-
-                <div class="perfil-usuario-footer">
-
-                  <ul class="lista-datos">
-                        <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
-                        <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
-                        <li><i class="icono fas fa-briefcase"></i> Trabaja en:</li>
-                        <li><i class="icono fas fa-building"></i> Cargo:</li>
-                        <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion:</li>
-                        <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento:</li>
-                        <li><i class="icono fas fa-user-check"></i> Registro:</li>
-                        <li><i class="icono fas fa-share-alt"></i> Redes sociales:</li>
-                      </div>
-                    </ul>
-                  </div>
-                <div class="redes-sociales">
-                    <a href="" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
-                    <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
-                    <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+            <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>Los ojos de un animal tienen el poder de hablar un gran lenguaje</p>
+                <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+            </div>
+        </section>
+        <br><br>
+        <section class="row row-cols-1 row-cols-md-2 g-4" class="container">
+            <div class="col">
+            <div class="card">
+                <img src="{{ url_for('static',filename='images/carrusel1.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
             </div>
-         <ul class="socials">
-          
-        <li>
-            
-            <i class="icon email"></i>
-            <a href="mailto:usuario@gmail.com">usuario@gmail.com</a>
-        </li>
-        <li>
-            <i class="icon facebook"></i>
-            <a href="https://www.facebook.com/usuario">usuario</a>
-        </li>
-    </ul>
-    <div class="about">
-    </div>
-</section>
-    
-    
-</body> 
+            </div>
+            <div class="col">
+            <div class="card">
+                <img src="{{ url_for('static',filename='images/carrusel1.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col">
+            <div class="card">
+                <img src="{{ url_for('static',filename='images/carrusel1.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col">
+            <div class="card">
+                <img src="{{ url_for('static',filename='images/carrusel1.jpg') }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
+            </div>
+            </div>
+        </section>
+        
+    </body> 
 </html>
