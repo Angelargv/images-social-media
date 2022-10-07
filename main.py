@@ -1,4 +1,3 @@
-from pickle import NONE
 from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import hashlib
@@ -136,7 +135,60 @@ def información():
 def cambioContrasena():
     if "email" in session:
         return render_template("cambio_contrasena.html")
-    return render_template("login.html", error = ["¡Usuario no autorizado!"]) 
+    return render_template("login.html", error = ["¡Usuario no autorizado!"])
+
+
+@app.route("/login/perfil/configuraciones/cambio-contraseña", methods=["post"])
+def change_pass():
+    error = []
+    check_email = request.form["txtconfir_correo"]
+    pass_cur = request.form["txtpass_cur"]
+    pass_new = request.form["txtpass_new"]
+    check_new = request.form["txtcheck"]
+
+    if not check_email:
+        error.append("¡Se requiere confirmar correo!")
+        return render_template("cambio_contrasena.html", error = error)  
+
+    if not pass_cur:
+        error.append("¡Se requiere contraseña actual!")
+        return render_template("cambio_contrasena.html", error = error)  
+
+    if not pass_new:
+        error.append("¡Debe digitar la nueva contraseña!")
+        return render_template("cambio_contrasena.html", error = error)  
+
+    if (pass_new!= check_new):
+        error.append("¡Nueva contraseña no coincide!")
+        return render_template("cambio_contrasena.html", error = error) 
+    else:
+
+        # Aplica la función hash (haslib) al password
+        clave_actual = hashlib.sha256(pass_cur.encode())  
+        clave_nueva = hashlib.sha256(pass_new.encode())
+        # Convierte el password a hexadecimal tipo string
+        pwdold = clave_actual.hexdigest()
+        pwdnew = clave_nueva.hexdigest()
+
+        #Conexión a BD
+        with sqlite3.connect("redsocial.db") as con:
+            # Convierte el registro en un diccionario
+            con.row_factory = sqlite3.Row
+            cur = con.cursor()
+        
+            # Sentencias preparadas
+            cur.execute("SELECT * FROM usuarios WHERE correo= ? AND contraseña= ?",[check_email, pwdold])
+            row = cur.fetchone()
+            if row:
+                succesful =[]
+                cur.execute("UPDATE usuarios SET contraseña= ? WHERE correo = ?",[pwdnew,check_email])
+                con.commit()
+                succesful.append("¡La contraseña a sido cambiada con exito!")
+                return render_template("cambio_contrasena.html", succesful = succesful)
+            else:
+                error.append("Correo o contraseña anterior no corresponden, por favor ingrese los datos correctos")
+                return render_template("cambio_contrasena.html", error = error) 
+
     
 @app.route("/login/perfil/comentarios")
 def comentarios():
