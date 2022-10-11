@@ -6,6 +6,8 @@ import os
 
 app = Flask(__name__)
 
+FOLDER = "static/images"
+
 app.secret_key = os.urandom(24)
 
 @app.route("/")
@@ -116,8 +118,42 @@ def siExiste(user):
 def perfil():
     if "email" in session:
         return render_template("perfil.html")
-
     return render_template("login.html", error = ["¡Usuario no autorizado!"]) 
+
+@app.route("/login/perfil/subir-imagen")
+def subirimagen():
+    if "email" in session:
+        return render_template("subir_imagen.html")
+    return render_template("login.html", error = ["¡Usuario no autorizado!"])
+
+@app.route("/login/perfil/subir-imagen", methods=["post"])
+def newimage():
+    if "email" in session:
+        foto_perfil = request.files["foto_perfil"]
+        nom_foto = foto_perfil.filename
+        print(nom_foto)
+        # Crea la ruta
+        ruta = FOLDER + secure_filename(nom_foto)
+        #Guarda el archivo en disco duro
+        foto_perfil.save(ruta)
+        user = session["email"]
+        with sqlite3.connect("redsocial.db") as con:
+            con.row_factory = sqlite3.Row
+            cur = con.cursor()
+        
+            # Sentencias preparadas
+            cur.execute("SELECT * FROM usuarios WHERE correo= ? ",[user])
+            row = cur.fetchone()
+            if row:
+                succesful =[]
+                cur.execute("UPDATE usuarios SET fotoperfil= ? WHERE correo = ?",[nom_foto,user])
+                con.commit()
+                succesful.append("Se sube la nueva foto de perfil")
+                return render_template("subir_imagen.html", sucessful = succesful)
+            else:
+                error= []
+                error.append("No se encontro el usuario")
+                return render_template("subir_imagen.html", error = error) 
 
 @app.route("/login/perfil/configuraciones")
 def configuracion():
