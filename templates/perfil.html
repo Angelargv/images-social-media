@@ -49,8 +49,16 @@
             </div>
         </nav>
         <br><br>
+        {% if foto %}
+            <div class="text-center">
+                <img src="{{foto}}" class="rounded" alt="...">
+            </div>
+        {% else %}
+            <div class="text-center">
+                <img src="../static/images/perfil.jpeg" class="rounded" alt="...">
+            </div>
+        {% endif %}
         <div class="text-center">
-            <img src="{{ url_for('static',filename='images/perfil.jpeg') }}" class="rounded" alt="..."><br>
             <a href="{{ url_for('subirimagen') }}">
                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-camera-plus" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>

@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 
-FOLDER = "static/images"
+FOLDER = "static/images/"
 
 app.secret_key = os.urandom(24)
 
@@ -45,6 +45,9 @@ def log():
             row = cur.fetchone()
             if row:
                 session["email"] = row["correo"]
+                session["foto"] = row["fotoperfil"]
+                foto = FOLDER + session["foto"]
+                print(foto)
                 return redirect("/login/perfil")
             else:
                 error.append("Correo o contraseña no existe, por favor registrate")
