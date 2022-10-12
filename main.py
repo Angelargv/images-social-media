@@ -45,9 +45,9 @@ def log():
             row = cur.fetchone()
             if row:
                 session["email"] = row["correo"]
-                session["foto"] = row["fotoperfil"]
-                foto = FOLDER + session["foto"]
-                print(foto)
+                # session["foto"] = row["fotoperfil"]
+                # foto = FOLDER + session["foto"]
+                # print(foto)
                 return redirect("/login/perfil")
             else:
                 error.append("Correo o contraseña no existe, por favor registrate")
@@ -104,7 +104,7 @@ def registro():
         #Crea el nuevo Usuario
         cur.execute("INSERT INTO usuarios (correo,edad,usuario,contraseña) VALUES (?,?,?,?)",[correo,edad,usuario,pwd])
         con.commit()
-        return redirect ("/login/perfil")
+        return redirect ("/login")
 
 def siExiste(user):
      # Se conecta a la BD
@@ -134,7 +134,6 @@ def newimage():
     if "email" in session:
         foto_perfil = request.files["foto_perfil"]
         nom_foto = foto_perfil.filename
-        print(nom_foto)
         # Crea la ruta
         ruta = FOLDER + secure_filename(nom_foto)
         #Guarda el archivo en disco duro
